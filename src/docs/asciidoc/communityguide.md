@@ -1,0 +1,101 @@
+## The Community Guide
+
+General community information like the F.A.Q and links to Encore mentions.
+
+### Frequently Asked Questions
+
+#### How can I package my transcoded media for online streaming (DASH and HLS)?
+
+You could have a look at [Shaka Packager](https://google.github.io/shaka-packager/html/), [Bento4](https://github.com/axiomatic-systems/Bento4), and configure them to process the output of **Encore**.
+
+#### How can I generate my own OpenAPI documentation, for import into X
+
+To create your own OpenAPI-export from **Encore** so that you can transform it as you wish:
+
+```bash
+$ SPRING_PROFILES_ACTIVE=local ./gradlew clean generateOpenApiDocs
+```
+
+which will give you a _build/openapi.json_ file for further processing.
+
+**💡 TIP**\
+For further information on how you can configure the API-generation, see the [Springdoc Project](https://springdoc.org/)
+
+#### I have great idea/bugfix/improvement to Encore, how do I submit it?
+
+See [The Contribute section](#contributorguide)
+
+#### Can I write a plugin/extension for doing X in *Encore*?
+
+Currently, there are no extensions interface endpoints, but you could, for example, add transcoding functionality by writing an FFMpeg filter - some examples of how that can done can be found at [FFmpeg proxy filters](https://github.com/SVT/ffmpeg-filter-proxy-filters) - have a peek at the [Homebrew AVTools](https://github.com/svt/homebrew-avtools) for how to build an FFmpeg with them.
+
+Also, open a discussion issue if you have any ideas regarding contributions about extensions to **Encore** that you want to discuss.
+
+#### How can I create a profile doing X?
+
+Have a look at a few profiles from the documentation or project test examples to learn how you can set different options.
+Also, see if you can do what you can do what you want with pure FFmpeg.
+It should then be doable to map that configuration to a custom profile.
+
+### Articles and talks
+
+[Article: 2021 - Encore - licensed to once again transcode](https://medium.com/the-svt-tech-blog/encore-open-source-licensed-to-once-again-transcode-bbf854f7a812)
+- an article about how, and why, we released **Encore** as Open Source and an introduction to how it basically works.
+
+[Video: 2019 - FOSS made us do it](https://conf.tube/videos/watch/751d41f4-72fd-4bfe-aa26-8d8b0e8054c2)
+- How **Encore** and FOSS tools enables the Video Encoding at SVT
+
+[Article: 2018 Encore - video transcoding at it’s core](https://medium.com/the-svt-tech-blog/encore-video-transcoding-at-its-core-b80c3e5658b3)
+- while interesting for the project origins, it contains partially **non-valid information** as the code has been largely rewritten since then.
+
+### Third-party extensions
+
+Eyevinn IAF plugin: [An IAF plugin for SVT Encore](https://dev.to/video/locally-transcode-vod-content-with-eyevinn-ingest-application-framework-and-svt-encore-2md7IAF)
+
+### Support
+
+There is **no formal** support - none, nada, nothing - for **Encore** directly from the main contributors / maintainers - but we **would love if** people use and improve the project, so here are some suggestions if you are stuck.
+
+**File an Issue on GitHub**
+
+You can always file an issue, ask a question, open a discussion issue, and we will most likely respond to that, when time allows.
+
+**Stack Overflow**
+
+If your question does not contain sensitive information, please ask a question on [Stack Overflow](https://stackoverflow.com/) and use the tag 'svtencore'. Maybe some other users will help you.
+
+### Project History
+
+**_The initiative_**
+
+It was around 2018, and it was time to yet again update the license and the hardware for our proprietary non-flexible transcoding solution.
+Although that unnamed solution had served us very well, we also had a history of less than optimal transcoding, flexibility and support when things went wrong.
+Around that period, it happened that, our organisation was preparing the next "Tekniksprint".
+A "Tekniksprint" is an "innovate for an entire sprint" period, which happens two times a year at our organisation.
+That time, a small team gathered, with the purpose of seeing how much of a video transcoding solution that could be built in two weeks.
+So, with warts, hacks and shortcuts, we had a fun Sprint period, and also ended up with something [almost usable, see links](#articles-and-talks).
+And, yes, it even had GUI, so that we could make it pretty demo friendly.
+However, it was not very robust, and something we could build further upon.
+
+By having a Proof-of-Concept project, we now could now walk the long and winding internal organisation road of convincing everyone that we could, and that we should re-write the project seriously - considering flexibility, features and support in comparison with others.
+
+**_The development_**
+
+It almost became a meme for us, but in 2019 we wrote ut, tested it, and ran it in production, with so good results, that we could ditch out proprietary solution.
+In fact, **Encore** helped us achieve better quality, better flexibility, and saved us money - the costs for developing the Encore solution was multitudes less than buying just another new stack.
+
+We now had an easier way to work with new codecs and transcoding features that would be impossible, had we chosen another proprietary solution.
+
+**_The Open Source Encore_**
+
+We always had the intention to Open Source the solution, as we heard that others, mainly friends in Public Broadcast organisations, had an interest in the product.
+So during 2019/20 , with almost every Sprint-period, we tried to have at least a task that was directly prepared with Open Sourcing Encore.
+Slowly, but determined.
+
+From license research, documentation, basic code cleanups, removing the most SVT-specific code, and releasing libraries that would make it possible to release the project itself.
+Warts and all, finally we got there.
+
+So far, Encore has been a success story for us at SVT.
+We sincerely hope that it can benefit you, and with time grow to be an even greater transcoding solution.
+
+/_The Videocore Team at SVT_
