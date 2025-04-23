@@ -1,6 +1,7 @@
 name: Build and publish GHPages
 
-on: 
+on:
+  workflow_dispatch: {}
   push:
     branches:
     - main
